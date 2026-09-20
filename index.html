@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Royal Nikah Ceremony | Aiza Haniya &amp; Hamza Idris</title>
+  <meta name="description" content="You are cordially invited to celebrate the Nikah ceremony of Aiza Haniya & Hamza Idris on October 18, 2026 at Hyatt Regency Chennai.">
+  <meta name="theme-color" content="#3B0710">
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="The Nikah of Aiza &amp; Hamza | Wedding Invitation">
+  <meta property="og:description" content="In faith and love, we begin our forever. Join us on October 18, 2026 in Chennai.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/intro-curtain.jpg.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Audio Element -->
+  <audio id="backgroundMusic" preload="none" loop>
+    <source src="assets/audio/background.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Luxury Music Button -->
+  <button id="musicToggle" class="music-toggle" aria-label="Toggle Royal Music" title="Play / Pause Music">
+    <div class="music-disc">
+      <span class="music-symbol" id="musicIcon">♪</span>
+    </div>
+    <span class="music-ripple"></span>
+  </button>
+
+  <!-- Floating Falling Rose Petals -->
+  <div id="petalsContainer" class="petals-container" aria-hidden="true"></div>
+
+  <!-- ===================================================
+       SECTION 1: CINEMATIC INTRO & CURTAIN VIDEO
+       =================================================== -->
+  <section id="intro" class="intro-screen">
+    <!-- Base Royal Artwork -->
+    <div class="intro-visual" id="introVisual">
+      <img src="assets/intro-curtain.jpg.png" alt="Royal Velvet Curtain" class="intro-art-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/intro-curtain.jpg';}">
+      
+      <!-- Ambient Candlelight Vignette -->
+      <div class="intro-vignette"></div>
+
+      <!-- Pulsing Interactive Hotspot over "tap to open" -->
+      <button id="openInviteBtn" class="tap-hotspot" aria-label="Tap to Open Royal Wedding Invitation">
+        <div class="seal-outer-ring"></div>
+        <div class="seal-inner-core">
+          <span class="seal-sparkle">✦</span>
+          <span class="seal-text">TAP TO OPEN</span>
+          <span class="seal-sparkle">✦</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Live Cinematic Curtain Video Overlay -->
+    <div class="curtain-video-layer" id="curtainVideoLayer">
+      <video id="curtainVideo" class="curtain-video" playsinline muted preload="auto">
+        <source src="assets/curtain-open.mp4" type="video/mp4">
+      </video>
+      <div class="video-light-leak" id="videoLightLeak"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       MAIN INVITATION CARD (Centered Mobile-First Frame)
+       =================================================== -->
+  <div class="invite-wrapper" id="inviteWrapper">
+    <main class="invite-container">
+
+      <!-- SECTION 2: HERO -->
+      <section id="hero" class="section hero-section">
+        <div class="hero-bg-overlay"></div>
+        
+        <!-- Floral Top Garland -->
+        <div class="hero-floral hero-floral-top">
+          <img src="assets/floral-top.png" alt="" class="floral-img-top">
+        </div>
+
+        <div class="hero-content">
+          <!-- Bismillah Calligraphy in Golden Crest -->
+          <div class="bismillah-crest reveal-item" data-delay="150">
+            <div class="bismillah-arabic" dir="rtl" lang="ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+            <p class="bismillah-trans">In the name of Allah, the Most Gracious, the Most Merciful</p>
+          </div>
+
+          <div class="royal-filigree-divider reveal-item" data-delay="300">
+            <span class="filigree-line"></span>
+            <span class="filigree-motif">❖</span>
+            <span class="filigree-line"></span>
+          </div>
+
+          <p class="hero-invite-label reveal-item" data-delay="450">
+            WE REQUEST THE HONOUR OF YOUR PRESENCE<br>AT THE NIKAH OF
+          </p>
+
+          <!-- Bride Name -->
+          <div class="name-block reveal-item" data-delay="650">
+            <h1 class="couple-name bride-name shimmer-text">Aiza Haniya</h1>
+            <p class="parents-line">
+              <span class="kin-tag">DAUGHTER OF</span><br>
+              <strong class="parent-names">Barkat Ali &amp; Razia Sultana</strong>
+            </p>
+          </div>
+
+          <div class="names-connector reveal-item" data-delay="800">
+            <span class="connector-line"></span>
+            <span class="connector-amp">&amp;</span>
+            <span class="connector-line"></span>
+          </div>
+
+          <!-- Groom Name -->
+          <div class="name-block reveal-item" data-delay="950">
+            <h1 class="couple-name groom-name shimmer-text">Hamza Idris</h1>
+            <p class="parents-line">
+              <span class="kin-tag">SON OF</span><br>
+              <strong class="parent-names">Abdul Rahman &amp; Zohra Begum</strong>
+            </p>
+          </div>
+
+          <div class="royal-filigree-divider reveal-item" data-delay="1100">
+            <span class="filigree-line"></span>
+            <span class="filigree-motif">✦ ❖ ✦</span>
+            <span class="filigree-line"></span>
+          </div>
+
+          <p class="hero-tagline reveal-item" data-delay="1250">
+            AS THEY BEGIN THEIR FOREVER<br>IN FAITH AND LOVE.
+          </p>
+
+          <!-- Animated Scroll Indicator -->
+          <div class="scroll-indicator reveal-item" data-delay="1400">
+            <span class="scroll-text">SCROLL TO CELEBRATE</span>
+            <div class="scroll-beacon">
+              <div class="scroll-dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floral Bottom Garland (with screen blend mode to eliminate black bg) -->
+        <div class="hero-floral hero-floral-bottom">
+          <img src="assets/floral-bottom.png" alt="" class="floral-img-bottom">
+        </div>
+      </section>
+
+      <!-- SECTION 3: WELCOME -->
+      <section id="welcome" class="section welcome-section">
+        <div class="royal-card-inner">
+          <div class="section-floral-header reveal-item">
+            <img src="assets/floral-divider.png" alt="" class="floral-divider-img">
+          </div>
+
+          <div class="gold-badge reveal-item">A BLESSED BEGINNING</div>
+          <h2 class="section-title reveal-item">A Blessed Beginning</h2>
+          
+          <div class="gold-ornament-line reveal-item">
+            <span class="line-wing"></span>
+            <span class="line-gem">✦</span>
+            <span class="line-wing"></span>
+          </div>
+
+          <p class="welcome-quote reveal-item">
+            “With hearts full of gratitude, we warmly invite you to join us as we celebrate this beautiful beginning with the love, prayers, and blessings of our families.”
+          </p>
+
+          <div class="welcome-signature-wrap reveal-item">
+            <div class="signature-names">Aiza &amp; Hamza</div>
+            <div class="signature-date">Sunday • 18 October 2026</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: SCRATCH DATE (INTERACTIVE REAL HTML5 CANVAS) -->
+      <section id="date" class="section scratch-section">
+        <div class="gold-badge reveal-item">SAVE OUR DATE</div>
+        <h2 class="section-title reveal-item">The Blessed Union</h2>
+        <p class="scratch-guidance reveal-item">Scratch the gold medallion below with your finger or mouse</p>
+
+        <!-- Scratch Card Component Frame -->
+        <div class="scratch-card-container reveal-item" id="scratchCardContainer">
+          <div class="scratch-stage">
+            <!-- Underneath Revealed Content -->
+            <div class="revealed-invitation-card" id="revealedCard">
+              <div class="card-corner-decor tl">❖</div>
+              <div class="card-corner-decor tr">❖</div>
+              <div class="card-corner-decor bl">❖</div>
+              <div class="card-corner-decor br">❖</div>
+
+              <div class="revealed-intro">Our forever begins</div>
+              <h3 class="revealed-title shimmer-text">YOU'RE INVITED!</h3>
+              <div class="revealed-gold-line"></div>
+              <div class="revealed-big-date">October 18, 2026</div>
+              <div class="revealed-day-time">Sunday • 07:00 PM</div>
+              <div class="revealed-venue-name">Hyatt Regency Chennai</div>
+              <div class="revealed-seal">✦ BLESSED NIKAH ✦</div>
+            </div>
+
+            <!-- HTML5 Scratch Canvas Layer -->
+            <canvas id="scratchCanvas" class="scratch-canvas" aria-label="Interactive scratch card canvas"></canvas>
+
+            <!-- Sparkle Burst Layer -->
+            <div class="sparkles-overlay" id="sparklesOverlay" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: OUR STORY (LUXURY PHOTO SLIDER) -->
+      <section id="story" class="section story-section">
+        <div class="gold-badge reveal-item">OUR STORY</div>
+        <h2 class="section-title reveal-item">Moments, softly held</h2>
+        <p class="section-subtitle reveal-item">Two souls destined by prayer and grace</p>
+
+        <div class="story-gallery reveal-item" id="storyGallery">
+          <div class="slider-viewport" id="sliderViewport">
+            <div class="slider-track" id="sliderTrack">
+              
+              <!-- Slide 1 -->
+              <div class="slider-slide" data-index="0">
+                <div class="photo-card-frame">
+                  <div class="photo-inner">
+                    <img src="assets/couple-1.png" alt="Aiza and Hamza - Blessed Bond" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-1.jpg';}">
+                  </div>
+                  <div class="photo-caption">
+                    <span class="caption-tag">CHAPTER I</span>
+                    <p class="caption-text">A quiet glance, an eternal promise</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="slider-slide" data-index="1">
+                <div class="photo-card-frame">
+                  <div class="photo-inner">
+                    <img src="assets/couple-2.png" alt="Aiza and Hamza - Joyous Days" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-2.jpg';}">
+                  </div>
+                  <div class="photo-caption">
+                    <span class="caption-tag">CHAPTER II</span>
+                    <p class="caption-text">United under the blessings of our elders</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="slider-slide" data-index="2">
+                <div class="photo-card-frame">
+                  <div class="photo-inner">
+                    <img src="assets/couple-3.png" alt="Aiza and Hamza - Everlasting Love" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-3.jpg';}">
+                  </div>
+                  <div class="photo-caption">
+                    <span class="caption-tag">CHAPTER III</span>
+                    <p class="caption-text">Cherishing every laughter along the way</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="slider-slide" data-index="3">
+                <div class="photo-card-frame">
+                  <div class="photo-inner">
+                    <img src="assets/couple-4.png" alt="Aiza and Hamza - In Faith and Love" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-4.jpg';}">
+                  </div>
+                  <div class="photo-caption">
+                    <span class="caption-tag">CHAPTER IV</span>
+                    <p class="caption-text">Stepping forward into our forever</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Slider Controls -->
+          <button class="slider-nav-btn prev" id="sliderPrevBtn" aria-label="Previous Portrait">‹</button>
+          <button class="slider-nav-btn next" id="sliderNextBtn" aria-label="Next Portrait">›</button>
+
+          <!-- Dot Indicators -->
+          <div class="slider-indicators" id="sliderDots">
+            <button class="slider-dot active" data-index="0" aria-label="Portrait 1"></button>
+            <button class="slider-dot" data-index="1" aria-label="Portrait 2"></button>
+            <button class="slider-dot" data-index="2" aria-label="Portrait 3"></button>
+            <button class="slider-dot" data-index="3" aria-label="Portrait 4"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: COUNTDOWN -->
+      <section id="countdown" class="section countdown-section">
+        <div class="countdown-velvet-bg"></div>
+        <div class="countdown-container">
+          <div class="gold-badge badge-light reveal-item">UNTIL WE SAY QUBOOL HAI</div>
+          <h2 class="section-title text-light reveal-item">Counting every heartbeat</h2>
+          <div class="gold-ornament-line reveal-item">
+            <span class="line-wing"></span>
+            <span class="line-gem">✦</span>
+            <span class="line-wing"></span>
+          </div>
+
+          <div class="countdown-board reveal-item" id="countdownGrid">
+            <div class="time-tile">
+              <div class="tile-face">
+                <span class="tile-digit" id="days">00</span>
+                <span class="tile-caption">DAYS</span>
+              </div>
+            </div>
+            <div class="time-tile">
+              <div class="tile-face">
+                <span class="tile-digit" id="hours">00</span>
+                <span class="tile-caption">HOURS</span>
+              </div>
+            </div>
+            <div class="time-tile">
+              <div class="tile-face">
+                <span class="tile-digit" id="minutes">00</span>
+                <span class="tile-caption">MINUTES</span>
+              </div>
+            </div>
+            <div class="time-tile">
+              <div class="tile-face">
+                <span class="tile-digit" id="seconds">00</span>
+                <span class="tile-caption">SECONDS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="countdown-celebration" id="countdownFinished">
+            <span>✦ THE DAY HAS ARRIVED ✦</span>
+          </div>
+
+          <p class="countdown-exact-date reveal-item">Sunday, October 18, 2026 • 07:00 PM IST</p>
+        </div>
+      </section>
+
+      <!-- SECTION 7: TIMELINE -->
+      <section id="timeline" class="section timeline-section">
+        <div class="gold-badge reveal-item">THE CELEBRATION</div>
+        <h2 class="section-title reveal-item">Our Nikah day</h2>
+        <div class="gold-ornament-line reveal-item">
+          <span class="line-wing"></span>
+          <span class="line-gem">✦</span>
+          <span class="line-wing"></span>
+        </div>
+
+        <div class="timeline-scroll">
+          <div class="timeline-gold-spine"></div>
+
+          <!-- Event 1 -->
+          <div class="timeline-entry reveal-timeline">
+            <div class="timeline-node">
+              <div class="node-ring">
+                <span class="node-spark">✦</span>
+              </div>
+            </div>
+            <div class="timeline-parchment">
+              <div class="entry-time">6:30 PM</div>
+              <h3 class="entry-title">Guest Arrival</h3>
+              <p class="entry-desc">A warm welcome with chilled sherbets as dear families and friends gather.</p>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="timeline-entry reveal-timeline">
+            <div class="timeline-node">
+              <div class="node-ring">
+                <span class="node-spark">❖</span>
+              </div>
+            </div>
+            <div class="timeline-parchment highlighted-entry">
+              <div class="entry-time highlight-gold">7:00 PM</div>
+              <h3 class="entry-title">Nikah Ceremony</h3>
+              <p class="entry-desc">Solemnisation &amp; duas as two hearts unite in sacred Islamic covenant.</p>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="timeline-entry reveal-timeline">
+            <div class="timeline-node">
+              <div class="node-ring">
+                <span class="node-spark">✦</span>
+              </div>
+            </div>
+            <div class="timeline-parchment">
+              <div class="entry-time">7:30 PM</div>
+              <h3 class="entry-title">Blessings</h3>
+              <p class="entry-desc">Family greetings, heartiest congratulations &amp; photographs with the newly wedded couple.</p>
+            </div>
+          </div>
+
+          <!-- Event 4 -->
+          <div class="timeline-entry reveal-timeline">
+            <div class="timeline-node">
+              <div class="node-ring">
+                <span class="node-spark">❖</span>
+              </div>
+            </div>
+            <div class="timeline-parchment">
+              <div class="entry-time">8:00 PM</div>
+              <h3 class="entry-title">Dinner</h3>
+              <p class="entry-desc">A royal feast shared with love — an exquisite spread of Mughlai &amp; Awadhi delicacies.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 8: VENUE -->
+      <section id="venue" class="section venue-section">
+        <div class="gold-badge reveal-item">THE VENUE</div>
+        <h2 class="section-title reveal-item">Hyatt Regency</h2>
+        <div class="gold-ornament-line reveal-item">
+          <span class="line-wing"></span>
+          <span class="line-gem">✦</span>
+          <span class="line-wing"></span>
+        </div>
+
+        <div class="venue-grand-card reveal-item">
+          <div class="venue-photo-holder">
+            <img src="assets/venue.png" alt="Hyatt Regency Chennai" class="venue-full-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/venue.jpg';}">
+            <div class="venue-banner-badge">ROYAL VENUE</div>
+          </div>
+
+          <div class="venue-details-wrap">
+            <h3 class="venue-hall-title">The Grand Ballroom</h3>
+            <p class="venue-address-block">
+              Hyatt Regency Chennai<br>
+              Anna Salai, Teynampet,<br>
+              Chennai, Tamil Nadu 600018
+            </p>
+
+            <a href="https://www.google.com/maps/search/?api=1&query=Hyatt+Regency+Chennai+Anna+Salai+Teynampet+Chennai" target="_blank" rel="noopener noreferrer" class="royal-gold-button" id="venueMapBtn">
+              <span class="btn-icon">📍</span> VIEW ON GOOGLE MAPS
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 9: DRESS CODE -->
+      <section id="dress-code" class="section dress-section">
+        <div class="gold-badge reveal-item">DRESS CODE</div>
+        <h2 class="section-title reveal-item">Festive Formal</h2>
+        <div class="gold-ornament-line reveal-item">
+          <span class="line-wing"></span>
+          <span class="line-gem">✦</span>
+          <span class="line-wing"></span>
+        </div>
+
+        <p class="dress-guide-para reveal-item">
+          Traditional or formal attire is encouraged. Sarees, lehengas, anarkalis, sherwanis, kurtas, suits, and formal dresses are all welcome.
+        </p>
+        <p class="dress-note-para reveal-item">
+          We kindly ask guests to avoid overly casual attire and white or ivory.
+        </p>
+
+        <!-- Color Swatches -->
+        <div class="palette-swatches-grid reveal-item">
+          <div class="palette-swatch-box">
+            <div class="swatch-disc" style="background: #3B0710;"></div>
+            <span class="swatch-title">Deep Maroon</span>
+          </div>
+          <div class="palette-swatch-box">
+            <div class="swatch-disc" style="background: #4A0812;"></div>
+            <span class="swatch-title">Burgundy</span>
+          </div>
+          <div class="palette-swatch-box">
+            <div class="swatch-disc" style="background: #7D1520;"></div>
+            <span class="swatch-title">Crimson</span>
+          </div>
+          <div class="palette-swatch-box">
+            <div class="swatch-disc" style="background: #C9A45C;"></div>
+            <span class="swatch-title">Gold</span>
+          </div>
+          <div class="palette-swatch-box">
+            <div class="swatch-disc" style="background: #F3E5CF; border: 1.5px solid #C9A45C;"></div>
+            <span class="swatch-title">Champagne</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 10: FESTIVITIES -->
+      <section id="festivities" class="section festivities-section">
+        <div class="gold-badge reveal-item">THE FESTIVITIES</div>
+        <h2 class="section-title reveal-item">Days filled with joy</h2>
+        <div class="gold-ornament-line reveal-item">
+          <span class="line-wing"></span>
+          <span class="line-gem">✦</span>
+          <span class="line-wing"></span>
+        </div>
+
+        <div class="festivities-card-deck">
+          
+          <!-- Event 1: Mehendi -->
+          <div class="royal-festivity-card reveal-item">
+            <div class="festivity-crest">❧ ❖ ❧</div>
+            <h3 class="festivity-name">Mehendi</h3>
+            <div class="festivity-meta">OCTOBER 15 • 4:00 PM</div>
+            <div class="festivity-place">Bride's Residence</div>
+            <p class="festivity-details">An afternoon of henna melodies, laughter, and fragrant crimson rose petals.</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Chennai+Bride+Residence" target="_blank" rel="noopener noreferrer" class="festivity-maps-action">
+              VIEW ON GOOGLE MAPS →
+            </a>
+          </div>
+
+          <!-- Event 2: Qawwali Evening -->
+          <div class="royal-festivity-card reveal-item">
+            <div class="festivity-crest">❧ ❖ ❧</div>
+            <h3 class="festivity-name">Qawwali Evening</h3>
+            <div class="festivity-meta">OCTOBER 17 • 7:00 PM</div>
+            <div class="festivity-place">Groom's Residence</div>
+            <p class="festivity-details">A soulful night of devotional Sufi poetry, warm candlelight, and transcendent melodies.</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Chennai+Groom+Residence" target="_blank" rel="noopener noreferrer" class="festivity-maps-action">
+              VIEW ON GOOGLE MAPS →
+            </a>
+          </div>
+
+          <!-- Event 3: Walima -->
+          <div class="royal-festivity-card reveal-item">
+            <div class="festivity-crest">❧ ❖ ❧</div>
+            <h3 class="festivity-name">Walima</h3>
+            <div class="festivity-meta">OCTOBER 19 • 7:30 PM</div>
+            <div class="festivity-place">Blue Lagoon, ECR, Chennai</div>
+            <p class="festivity-details">The reception banquet of joyous fellowship, gratitude, and blessing our new beginning.</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Blue+Lagoon+ECR+Chennai" target="_blank" rel="noopener noreferrer" class="festivity-maps-action">
+              VIEW ON GOOGLE MAPS →
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 11: CLOSING -->
+      <section id="closing" class="section closing-section">
+        <!-- Transparent Floral Divider Frame at Top -->
+        <div class="closing-floral-top reveal-item">
+          <img src="assets/floral-top.png" alt="" class="floral-img-top">
+        </div>
+
+        <div class="closing-card-core">
+          <div class="gold-badge reveal-item">WITH ALL OUR HEARTS</div>
+          <h2 class="section-title reveal-item">Your presence is our present</h2>
+          <div class="gold-ornament-line reveal-item">
+            <span class="line-wing"></span>
+            <span class="line-gem">✦</span>
+            <span class="line-wing"></span>
+          </div>
+
+          <p class="closing-heartfelt-msg reveal-item">
+            “Your love, blessings, and presence are the greatest gifts we could ever ask for as we embark on this sacred journey together.”
+          </p>
+
+          <div class="closing-ornate-box reveal-item">
+            <p class="box-quote">We can't wait to celebrate with you.</p>
+            <div class="box-signature shimmer-text">Aiza &amp; Hamza</div>
+          </div>
+        </div>
+
+        <!-- Transparent Floral Divider at Bottom (NO BLACK BACKGROUND!) -->
+        <div class="closing-floral-bottom reveal-item">
+          <img src="assets/floral-divider.png" alt="" class="floral-divider-img">
+        </div>
+      </section>
+
+    </main>
+
+    <!-- SECTION 12: FOOTER -->
+    <footer class="invite-footer">
+      <div class="footer-crest">✦ ❖ ✦</div>
+      <h3 class="footer-title shimmer-text">Aiza &amp; Hamza</h3>
+      <p class="footer-calendar">October 18, 2026</p>
+      <p class="footer-sentiment">With love, prayers, and gratitude.</p>
+      <div class="footer-line"></div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
