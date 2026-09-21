@@ -39,19 +39,35 @@ const state = {
 function initIntro() {
   const openBtn = document.getElementById('openInviteBtn');
   const curtainVideo = document.getElementById('curtainVideo');
+  const skipBtn = document.getElementById('videoSkipBtn');
 
-  if (!openBtn) return;
-
-  // Pre-warm the video so it starts instantly on tap
   if (curtainVideo) {
     curtainVideo.load();
   }
 
-  openBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (state.isOpened) return;
-    openInvitation();
-  });
+  if (openBtn) {
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (state.isOpened) return;
+      openInvitation();
+    });
+  }
+
+  if (skipBtn) {
+    skipBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const intro = document.getElementById('intro');
+      const musicToggle = document.getElementById('musicToggle');
+      if (intro) intro.classList.add('fade-out');
+      if (musicToggle) musicToggle.classList.add('visible');
+      triggerHeroCascade();
+      setTimeout(() => {
+        if (intro) intro.style.display = 'none';
+        const curtainVid = document.getElementById('curtainVideo');
+        if (curtainVid) curtainVid.pause();
+      }, 800);
+    });
+  }
 }
 
 function openInvitation() {
