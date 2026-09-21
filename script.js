@@ -42,7 +42,14 @@ function initIntro() {
   const skipBtn = document.getElementById('videoSkipBtn');
 
   if (curtainVideo) {
+    curtainVideo.preload = 'auto';
     curtainVideo.load();
+    // Pre-seek to 3.0s once metadata is loaded so it starts immediately at second 3
+    curtainVideo.addEventListener('loadedmetadata', () => {
+      try {
+        curtainVideo.currentTime = 3.0;
+      } catch (e) {}
+    }, { once: true });
   }
 
   if (openBtn) {
@@ -77,10 +84,16 @@ function openInvitation() {
   const curtainVideo = document.getElementById('curtainVideo');
   const musicToggle = document.getElementById('musicToggle');
 
-  // Activate and play curtain video
+  // Activate and play curtain video starting at second 3.0
   if (videoLayer && curtainVideo) {
     videoLayer.classList.add('playing');
-    curtainVideo.currentTime = 0;
+    
+    // Skip first 3 seconds as requested
+    try {
+      curtainVideo.currentTime = 3.0;
+    } catch (e) {
+      console.warn('Seek notice:', e);
+    }
     
     const playPromise = curtainVideo.play();
     if (playPromise !== undefined) {
@@ -89,7 +102,7 @@ function openInvitation() {
       });
     }
 
-    // When the curtain opening reaches its glorious reveal (around 3.8s)
+    // Play full opening: curtains part open from 3.0s to 6.8s (3.8s duration)
     let hasCrossfaded = false;
     const triggerTransition = () => {
       if (hasCrossfaded) return;
@@ -112,13 +125,12 @@ function openInvitation() {
       }, 1500);
     };
 
-    // Transition after 3.8s when curtains are fully parted in the video
+    // Transition after 3.8s when curtains are fully opened and ballroom is revealed
     setTimeout(triggerTransition, 3800);
 
-    // Fallback if video ends earlier
+    // Also trigger if video ends
     curtainVideo.addEventListener('ended', triggerTransition);
   } else {
-    // Graceful fallback if video element is absent
     if (intro) intro.classList.add('fade-out');
     if (musicToggle) musicToggle.classList.add('visible');
     triggerHeroCascade();
