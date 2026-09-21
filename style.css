@@ -1,5 +1,5 @@
 /* ===================================================
-   ROYAL NIKAH INVITATION - FULL SCREEN MASTER STYLESHEET
+   ROYAL NIKAH INVITATION - 9:16 PORTRAIT MASTER STYLESHEET
    Aiza Haniya & Hamza Idris
    =================================================== */
 
@@ -18,19 +18,19 @@
   --parchment: #FAF3E6;
   --white: #FFFFFF;
 
-  /* Glows & Shadows */
+  /* Shadows & Glows */
   --gold-glow: 0 0 20px rgba(201, 164, 92, 0.45);
   --gold-glow-intense: 0 0 35px rgba(255, 223, 120, 0.7);
 
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-heading: 'Cinzel', serif;
-  --font-dec: 'Cinzel Decorative', serif;
   --font-body: 'Playfair Display', Georgia, serif;
   --font-script: 'Great Vibes', cursive;
   --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Transitions */
+  /* Card Dimension */
+  --app-max-width: 440px;
   --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -45,22 +45,67 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
-  background-color: var(--maroon);
+  background-color: #1a0105;
 }
 
 body {
   font-family: var(--font-body);
   color: var(--maroon);
-  background-color: var(--maroon);
+  background: radial-gradient(ellipse at 50% 25%, #420610 0%, #1f0106 60%, #0d0003 100%);
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
   line-height: 1.6;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* ===================================================
-   METALLIC GOLD SHINE TEXT
+   9:16 MOBILE & TABLET RATIO OUTER FRAME
+   Prevents desktop widescreen stretching, preserving authentic 9:16 ratio
+   =================================================== */
+.invite-outer-frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 0;
+}
+
+@media (min-width: 480px) {
+  .invite-outer-frame {
+    padding: 24px 16px 48px;
+  }
+}
+
+.invite-card-device {
+  width: 100%;
+  max-width: var(--app-max-width);
+  background-color: var(--parchment);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.85),
+    0 0 0 1.5px rgba(201, 164, 92, 0.55),
+    var(--gold-glow);
+}
+
+@media (min-width: 480px) {
+  .invite-card-device {
+    border-radius: 20px;
+  }
+}
+
+.invite-scroll-content {
+  width: 100%;
+  position: relative;
+}
+
+/* ===================================================
+   METALLIC GOLD TEXT SHINE
    =================================================== */
 .shimmer-text {
   background: linear-gradient(
@@ -84,47 +129,14 @@ body {
 }
 
 /* ===================================================
-   FULL SCREEN LAYOUT CONTAINER
-   =================================================== */
-.invite-wrapper {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  z-index: 10;
-  background-color: var(--parchment);
-}
-
-.invite-container {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-color: var(--parchment);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Responsive inner wrapper for balanced readability on desktop */
-.section-container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
-  position: relative;
-  z-index: 3;
-}
-
-/* ===================================================
    FLOATING ROYAL MUSIC BUTTON
    =================================================== */
 .music-toggle {
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: radial-gradient(circle, #5b1018 0%, #2e040b 100%);
   border: 1.5px solid var(--gold);
@@ -190,7 +202,7 @@ body {
 }
 
 /* ===================================================
-   SECTION 1: FULL SCREEN INTRO & CINEMATIC CURTAIN VIDEO
+   SECTION 1: 9:16 INTRO & CURTAIN VIDEO
    =================================================== */
 .intro-screen {
   position: fixed;
@@ -213,11 +225,10 @@ body {
   pointer-events: none;
 }
 
-/* Full Screen Intro Artwork */
 .intro-visual {
-  position: absolute;
-  inset: 0;
+  position: relative;
   width: 100%;
+  max-width: var(--app-max-width);
   height: 100%;
   display: flex;
   align-items: center;
@@ -234,21 +245,21 @@ body {
 .intro-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 35%, rgba(20, 1, 5, 0.65) 100%);
+  background: radial-gradient(circle at center, transparent 35%, rgba(20, 1, 5, 0.6) 100%);
   pointer-events: none;
 }
 
-/* Pulsing Hotspot */
+/* Pulsing Royal Hotspot */
 .tap-hotspot {
   position: absolute;
   top: 59.2%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 250px;
-  height: 80px;
+  width: 230px;
+  height: 75px;
   background: rgba(43, 4, 10, 0.55);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border: 1.5px solid var(--gold);
   border-radius: 40px;
   cursor: pointer;
@@ -262,14 +273,14 @@ body {
 }
 
 .tap-hotspot:hover {
-  transform: translate(-50%, -50%) scale(1.06);
-  box-shadow: 0 0 50px rgba(255, 223, 120, 0.95), inset 0 0 20px rgba(255, 223, 120, 0.5);
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 0 45px rgba(255, 223, 120, 0.9);
 }
 
 .seal-outer-ring {
   position: absolute;
-  inset: -6px;
-  border-radius: 46px;
+  inset: -5px;
+  border-radius: 45px;
   border: 1px dashed rgba(255, 223, 120, 0.75);
   animation: rotateRing 14s linear infinite;
   pointer-events: none;
@@ -278,20 +289,20 @@ body {
 .seal-inner-core {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   pointer-events: none;
 }
 
 .seal-sparkle {
   color: var(--bright-gold);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .seal-text {
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 3.5px;
   color: var(--bright-gold);
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 12px var(--gold);
 }
@@ -302,8 +313,8 @@ body {
     box-shadow: 0 0 25px rgba(201, 164, 92, 0.5);
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.04);
-    box-shadow: 0 0 45px rgba(255, 223, 120, 0.9), 0 0 15px rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%) scale(1.03);
+    box-shadow: 0 0 40px rgba(255, 223, 120, 0.9);
   }
 }
 
@@ -312,18 +323,20 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* Full Screen Curtain Video Layer */
+/* 9:16 Video Player Layer */
 .curtain-video-layer {
   position: absolute;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
+  width: 100%;
+  height: 100%;
   z-index: 100;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.6s ease;
   background-color: var(--maroon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .curtain-video-layer.playing {
@@ -333,10 +346,10 @@ body {
 
 .curtain-video {
   width: 100%;
+  max-width: var(--app-max-width);
   height: 100%;
   object-fit: cover;
   object-position: center;
-  display: block;
 }
 
 .video-light-leak {
@@ -354,16 +367,16 @@ body {
 
 .video-skip-btn {
   position: absolute;
-  bottom: 30px;
-  right: 30px;
+  bottom: 25px;
+  right: 25px;
   z-index: 150;
   background: rgba(43, 4, 10, 0.85);
   border: 1px solid var(--gold);
-  border-radius: 24px;
-  padding: 10px 22px;
+  border-radius: 20px;
+  padding: 8px 18px;
   color: var(--bright-gold);
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 2px;
   cursor: pointer;
@@ -376,48 +389,6 @@ body {
   background: var(--maroon);
   color: var(--white);
   border-color: var(--bright-gold);
-  transform: translateY(-2px);
-}
-
-/* ===================================================
-   EDGE-TO-EDGE FLORAL FRAMING SYSTEM
-   Solves the unaligned / floating floral issue completely
-   =================================================== */
-.floral-edge {
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;
-  pointer-events: none;
-  z-index: 10;
-  line-height: 0;
-  overflow: hidden;
-}
-
-.floral-edge-top {
-  top: 0;
-}
-
-.floral-edge-bottom {
-  bottom: 0;
-}
-
-.floral-full-img {
-  width: 100%;
-  height: auto;
-  max-height: 110px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
-}
-
-.floral-edge-top .floral-full-img {
-  object-position: top center;
-}
-
-.floral-edge-bottom .floral-full-img {
-  object-position: bottom center;
 }
 
 /* ===================================================
@@ -426,18 +397,18 @@ body {
 .section {
   position: relative;
   width: 100%;
-  padding: 70px 0;
+  padding: 48px 20px;
   text-align: center;
 }
 
 .gold-badge {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 3.5px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--dark-gold);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   display: inline-block;
 }
 
@@ -448,7 +419,7 @@ body {
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: 2.5rem;
+  font-size: 2.15rem;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--maroon);
@@ -464,8 +435,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  width: 150px;
-  margin: 14px auto 24px;
+  width: 140px;
+  margin: 12px auto 20px;
 }
 
 .gold-ornament-line .line-wing {
@@ -480,13 +451,13 @@ body {
 
 .gold-ornament-line .line-gem {
   color: var(--gold);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 /* Scroll reveal items */
 .reveal-item {
   opacity: 0;
-  transform: translateY(22px);
+  transform: translateY(20px);
   transition: opacity 0.85s var(--ease-cinematic), transform 0.85s var(--ease-cinematic);
   will-change: opacity, transform;
 }
@@ -497,15 +468,15 @@ body {
 }
 
 /* ===================================================
-   SECTION 2: FULL SCREEN HERO (PALACE TERRACE)
+   SECTION 2: HERO SECTION (NATURAL NON-OVERLAPPING FLORAL FLOW)
    =================================================== */
 .hero-section {
   min-height: 100vh;
   min-height: 100dvh;
-  padding: 85px 0 75px;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-image: url('assets/hero-bg.png'), url('assets/hero-bg.jpg');
   background-size: cover;
@@ -529,122 +500,124 @@ body {
   z-index: 1;
 }
 
-.hero-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* Top Floral Header - Flush against top edge, never overlapping text */
+.hero-floral-header {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  z-index: 5;
+  pointer-events: none;
+  margin-bottom: 0;
+}
+
+.floral-garland-top {
+  width: 100%;
+  height: auto;
+  max-height: 85px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6));
+}
+
+/* Hero Content - Cleanly spaced between garlands */
+.hero-body-content {
+  position: relative;
+  z-index: 6;
+  width: 100%;
+  padding: 10px 18px;
+  margin: auto 0;
+  text-align: center;
 }
 
 /* Bismillah */
 .bismillah-crest {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .bismillah-arabic {
   font-family: 'Traditional Arabic', 'Scheherazade New', 'Amiri', serif;
-  font-size: 2.35rem;
+  font-size: 2.1rem;
   letter-spacing: 1.5px;
   color: var(--bright-gold);
-  line-height: 1.4;
-  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(201, 164, 92, 0.6);
+  line-height: 1.35;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9), 0 0 18px rgba(201, 164, 92, 0.6);
 }
 
 .bismillah-trans {
   font-family: var(--font-serif);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-style: italic;
   letter-spacing: 1px;
   color: var(--light-gold);
   opacity: 0.9;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
-.royal-filigree-divider {
+.gold-filigree-divider {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  width: 140px;
-  margin: 12px auto 16px;
+  width: 130px;
+  margin: 10px auto 14px;
 }
 
-.royal-filigree-divider .filigree-line {
+.gold-filigree-divider .filigree-line {
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold));
 }
 
-.royal-filigree-divider .filigree-line:last-child {
+.gold-filigree-divider .filigree-line:last-child {
   background: linear-gradient(90deg, var(--gold), transparent);
 }
 
-.royal-filigree-divider .filigree-motif {
+.gold-filigree-divider .filigree-motif {
   color: var(--bright-gold);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 3px;
 }
 
 .hero-invite-label {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 3.5px;
   line-height: 1.85;
   color: var(--cream);
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
-/* Couple names layout (Responsive Grid for desktop and mobile) */
-.hero-couple-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  width: 100%;
-  max-width: 650px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .hero-couple-grid {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-  }
-}
-
-.couple-card {
-  text-align: center;
+.name-block {
+  margin: 2px 0;
 }
 
 .couple-name {
   font-family: var(--font-script);
-  font-size: 4.4rem;
+  font-size: 3.9rem;
   font-weight: 400;
   line-height: 1.05;
   margin: 2px 0;
-  filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.9));
 }
 
 .parents-line {
   font-family: var(--font-serif);
-  font-size: 1rem;
-  line-height: 1.45;
+  font-size: 0.92rem;
+  line-height: 1.4;
   color: var(--champagne);
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .kin-tag {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 2.5px;
   color: var(--bright-gold);
   display: inline-block;
-  margin-bottom: 2px;
 }
 
 .parent-names {
@@ -656,8 +629,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  width: 120px;
+  gap: 12px;
+  width: 110px;
   margin: 4px auto;
 }
 
@@ -673,54 +646,54 @@ body {
 
 .connector-amp {
   font-family: var(--font-serif);
-  font-size: 2.3rem;
+  font-size: 2rem;
   font-style: italic;
   color: var(--bright-gold);
   line-height: 1;
-  text-shadow: 0 0 12px var(--gold);
+  text-shadow: 0 0 10px var(--gold);
 }
 
 .hero-tagline {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 3px;
-  line-height: 1.8;
+  letter-spacing: 2.5px;
+  line-height: 1.7;
   color: var(--light-gold);
   text-transform: uppercase;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 /* Scroll indicator */
 .scroll-indicator {
-  margin-top: 28px;
+  margin-top: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .scroll-text {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 2.5px;
   color: var(--bright-gold);
 }
 
 .scroll-beacon {
-  width: 20px;
-  height: 32px;
-  border-radius: 10px;
+  width: 18px;
+  height: 28px;
+  border-radius: 9px;
   border: 1.5px solid var(--gold);
   display: flex;
   justify-content: center;
-  padding-top: 4px;
+  padding-top: 3px;
 }
 
 .scroll-dot {
   width: 4px;
-  height: 7px;
+  height: 6px;
   border-radius: 2px;
   background-color: var(--bright-gold);
   animation: beaconDrop 1.8s infinite ease-in-out;
@@ -728,7 +701,27 @@ body {
 
 @keyframes beaconDrop {
   0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(14px); opacity: 0; }
+  100% { transform: translateY(12px); opacity: 0; }
+}
+
+/* Bottom Floral Footer - Flush against bottom edge */
+.hero-floral-footer {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  z-index: 5;
+  pointer-events: none;
+  margin-top: 0;
+}
+
+.floral-garland-bottom {
+  width: 100%;
+  height: auto;
+  max-height: 80px;
+  object-fit: cover;
+  object-position: bottom center;
+  display: block;
+  filter: drop-shadow(0 -4px 10px rgba(0, 0, 0, 0.4));
 }
 
 /* ===================================================
@@ -736,23 +729,21 @@ body {
    =================================================== */
 .welcome-section {
   background: linear-gradient(180deg, var(--parchment) 0%, #faebd7 100%);
-  padding: 70px 0;
+  padding: 48px 18px;
 }
 
 .royal-card-inner {
   border: 1px solid rgba(201, 164, 92, 0.45);
-  border-radius: 16px;
-  padding: 40px 24px;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 10px 35px rgba(59, 7, 16, 0.08), inset 0 0 45px rgba(201, 164, 92, 0.1);
-  max-width: 680px;
-  margin: 0 auto;
+  border-radius: 14px;
+  padding: 28px 16px;
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 8px 25px rgba(59, 7, 16, 0.08), inset 0 0 35px rgba(201, 164, 92, 0.1);
 }
 
 .section-floral-header {
   width: 100%;
-  max-width: 420px;
-  margin: 0 auto 18px;
+  max-width: 290px;
+  margin: 0 auto 14px;
 }
 
 .floral-divider-img {
@@ -764,28 +755,28 @@ body {
 
 .welcome-quote {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  line-height: 1.85;
+  font-size: 1.15rem;
+  line-height: 1.8;
   color: #3b1419;
   font-style: italic;
-  max-width: 540px;
-  margin: 0 auto 26px;
+  max-width: 340px;
+  margin: 0 auto 20px;
 }
 
 .welcome-signature-wrap {
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
 .signature-names {
   font-family: var(--font-script);
-  font-size: 3.3rem;
+  font-size: 3rem;
   color: var(--crimson);
   line-height: 1;
 }
 
 .signature-date {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 2px;
   color: var(--dark-gold);
   font-weight: 600;
@@ -794,38 +785,38 @@ body {
 }
 
 /* ===================================================
-   SECTION 4: SCRATCH DATE (REAL HTML5 CANVAS)
+   SECTION 4: SCRATCH DATE (PRECISE 9:16 PROPORTIONS)
    =================================================== */
 .scratch-section {
   background: linear-gradient(180deg, #faebd7 0%, #f0dcc5 100%);
-  padding: 70px 0 80px;
+  padding: 48px 16px 54px;
 }
 
 .scratch-guidance {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 1.5px;
   color: var(--burgundy);
-  margin-bottom: 28px;
+  margin-bottom: 22px;
   font-weight: 500;
 }
 
 .scratch-card-container {
   width: 100%;
-  max-width: 420px;
+  max-width: 350px;
   margin: 0 auto;
 }
 
 .scratch-stage {
   position: relative;
   width: 100%;
-  height: 250px;
-  border-radius: 16px;
+  height: 220px;
+  border-radius: 14px;
   background-image: url('assets/scratch-card.png'), url('assets/scratch-card.jpg');
   background-size: 100% 100%;
   background-position: center;
   box-shadow: 
-    0 15px 40px rgba(59, 7, 16, 0.25),
+    0 12px 30px rgba(59, 7, 16, 0.25),
     0 0 0 1.5px rgba(201, 164, 92, 0.6),
     var(--gold-glow);
   overflow: hidden;
@@ -834,59 +825,58 @@ body {
   justify-content: center;
 }
 
-/* Underneath Revealed Decree */
 .revealed-invitation-card {
   position: absolute;
-  inset: 18px 26px;
+  inset: 16px 20px;
   background: radial-gradient(circle, #fffdf8 0%, #f8eedf 100%);
   border: 1.5px solid var(--gold);
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 14px;
-  box-shadow: inset 0 0 25px rgba(201, 164, 92, 0.25);
+  padding: 10px;
+  box-shadow: inset 0 0 20px rgba(201, 164, 92, 0.25);
   user-select: none;
 }
 
 .card-corner-decor {
   position: absolute;
   color: var(--gold);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   line-height: 1;
 }
 
-.card-corner-decor.tl { top: 6px; left: 8px; }
-.card-corner-decor.tr { top: 6px; right: 8px; }
-.card-corner-decor.bl { bottom: 6px; left: 8px; }
-.card-corner-decor.br { bottom: 6px; right: 8px; }
+.card-corner-decor.tl { top: 5px; left: 6px; }
+.card-corner-decor.tr { top: 5px; right: 6px; }
+.card-corner-decor.bl { bottom: 5px; left: 6px; }
+.card-corner-decor.br { bottom: 5px; right: 6px; }
 
 .revealed-intro {
   font-family: var(--font-script);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   color: var(--crimson);
   line-height: 1;
 }
 
 .revealed-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
-  letter-spacing: 3px;
+  font-size: 1.05rem;
+  letter-spacing: 2.5px;
   font-weight: 700;
-  margin: 3px 0;
+  margin: 2px 0;
 }
 
 .revealed-gold-line {
-  width: 60px;
-  height: 1.5px;
+  width: 50px;
+  height: 1px;
   background: var(--gold);
-  margin: 4px auto 6px;
+  margin: 3px auto 5px;
 }
 
 .revealed-big-date {
   font-family: var(--font-serif);
-  font-size: 1.75rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: var(--crimson);
   line-height: 1.1;
@@ -895,31 +885,31 @@ body {
 
 .revealed-day-time {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   color: var(--maroon);
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 .revealed-venue-name {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-style: italic;
   color: var(--dark-gold);
-  margin-top: 3px;
+  margin-top: 2px;
 }
 
 .revealed-seal {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   color: var(--gold);
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
-/* Canvas Scratch Overlay */
+/* Canvas */
 .scratch-canvas {
   position: absolute;
   inset: 0;
@@ -936,7 +926,6 @@ body {
   pointer-events: none;
 }
 
-/* Sparkles */
 .sparkles-overlay {
   position: absolute;
   inset: 0;
@@ -947,8 +936,8 @@ body {
 
 .sparkle-burst {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--bright-gold);
   box-shadow: 0 0 10px var(--bright-gold), 0 0 20px #fff;
@@ -962,33 +951,33 @@ body {
 }
 
 /* ===================================================
-   SECTION 5: OUR STORY (LUXURY PHOTO SLIDER)
-   =================================================== */
+   SECTION 5: OUR STORY (PORTRAIT SLIDER)
+   ================================================== */
 .story-section {
   background: linear-gradient(180deg, #f0dcc5 0%, var(--parchment) 100%);
-  padding: 70px 0;
+  padding: 48px 16px 54px;
 }
 
 .section-subtitle {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-style: italic;
   color: var(--wine);
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
 .story-gallery {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 360px;
   margin: 0 auto;
 }
 
 .slider-viewport {
   width: 100%;
-  border-radius: 16px;
+  border-radius: 14px;
   border: 2px solid var(--gold);
-  box-shadow: 0 15px 45px rgba(59, 7, 16, 0.25), var(--gold-glow);
+  box-shadow: 0 12px 35px rgba(59, 7, 16, 0.25), var(--gold-glow);
   background-color: var(--maroon);
   overflow: hidden;
   cursor: grab;
@@ -1013,7 +1002,7 @@ body {
 .photo-card-frame {
   position: relative;
   width: 100%;
-  height: 440px;
+  height: 380px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1029,7 +1018,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center 20%;
   transition: transform 0.7s ease;
 }
 
@@ -1042,17 +1031,17 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 35px 20px 18px;
-  background: linear-gradient(180deg, transparent 0%, rgba(20, 2, 6, 0.94) 100%);
+  padding: 28px 16px 14px;
+  background: linear-gradient(180deg, transparent 0%, rgba(20, 2, 6, 0.92) 100%);
   color: var(--champagne);
   text-align: center;
 }
 
 .caption-tag {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   color: var(--bright-gold);
   display: inline-block;
   margin-bottom: 2px;
@@ -1060,7 +1049,7 @@ body {
 
 .caption-text {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-style: italic;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
@@ -1070,13 +1059,13 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: rgba(43, 4, 10, 0.88);
   border: 1.5px solid var(--gold);
   color: var(--light-gold);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -1091,24 +1080,23 @@ body {
   background: var(--maroon);
   color: var(--white);
   border-color: var(--bright-gold);
-  transform: translateY(-50%) scale(1.12);
 }
 
-.slider-nav-btn.prev { left: -18px; }
-.slider-nav-btn.next { right: -18px; }
+.slider-nav-btn.prev { left: -14px; }
+.slider-nav-btn.next { right: -14px; }
 
 /* Dot indicators */
 .slider-indicators {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 16px;
 }
 
 .slider-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   border: 1.5px solid var(--gold);
   background: transparent;
@@ -1117,19 +1105,19 @@ body {
 }
 
 .slider-dot.active {
-  width: 30px;
-  border-radius: 6px;
+  width: 24px;
+  border-radius: 5px;
   background: var(--gold);
-  box-shadow: 0 0 10px var(--bright-gold);
+  box-shadow: 0 0 8px var(--bright-gold);
 }
 
 /* ===================================================
-   SECTION 6: FULL SCREEN COUNTDOWN
+   SECTION 6: COUNTDOWN
    =================================================== */
 .countdown-section {
   background-color: var(--maroon);
   color: var(--champagne);
-  padding: 80px 0 85px;
+  padding: 54px 16px 58px;
   position: relative;
   overflow: hidden;
 }
@@ -1141,59 +1129,65 @@ body {
   pointer-events: none;
 }
 
+.countdown-inner-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
 .countdown-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  max-width: 600px;
-  margin: 36px auto 26px;
+  gap: 8px;
+  max-width: 360px;
+  margin: 28px auto 20px;
 }
 
 .time-tile {
   background: linear-gradient(180deg, #4a0812 0%, #2b040a 100%);
   border: 1.5px solid rgba(201, 164, 92, 0.55);
-  border-radius: 12px;
-  padding: 20px 8px;
+  border-radius: 10px;
+  padding: 14px 4px;
   box-shadow: 
-    0 10px 25px rgba(0, 0, 0, 0.5),
+    0 8px 18px rgba(0, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 223, 120, 0.3),
-    0 0 18px rgba(201, 164, 92, 0.2);
+    0 0 14px rgba(201, 164, 92, 0.15);
 }
 
 .tile-digit {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 1.85rem;
   font-weight: 700;
   color: var(--bright-gold);
   line-height: 1;
   display: block;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 16px rgba(255, 223, 120, 0.5);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 12px rgba(255, 223, 120, 0.5);
 }
 
 .tile-caption {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   color: var(--champagne);
   display: block;
-  margin-top: 8px;
+  margin-top: 6px;
   opacity: 0.9;
 }
 
 .countdown-celebration {
   display: none;
   font-family: var(--font-heading);
-  font-size: 1.6rem;
-  letter-spacing: 4px;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
   color: var(--bright-gold);
-  padding: 24px 0;
-  text-shadow: 0 0 20px var(--bright-gold);
+  padding: 18px 0;
+  text-shadow: 0 0 18px var(--bright-gold);
 }
 
 .countdown-exact-date {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   letter-spacing: 1px;
   color: var(--light-gold);
 }
@@ -1203,32 +1197,31 @@ body {
    =================================================== */
 .timeline-section {
   background: linear-gradient(180deg, var(--parchment) 0%, #f7ecd9 100%);
-  padding: 75px 0 80px;
+  padding: 50px 16px 54px;
 }
 
 .timeline-scroll {
   position: relative;
-  max-width: 580px;
-  margin: 40px auto 0;
+  max-width: 360px;
+  margin: 30px auto 0;
 }
 
 .timeline-gold-spine {
   position: absolute;
   top: 15px;
   bottom: 15px;
-  left: 20px;
+  left: 18px;
   width: 2px;
   background: linear-gradient(180deg, var(--gold) 0%, var(--crimson) 50%, var(--gold) 100%);
-  box-shadow: 0 0 8px var(--shadow-gold);
 }
 
 .timeline-entry {
   position: relative;
   display: flex;
   align-items: flex-start;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   opacity: 0;
-  transform: translateX(20px);
+  transform: translateX(18px);
   transition: all 0.8s var(--ease-cinematic);
 }
 
@@ -1244,29 +1237,29 @@ body {
 .timeline-node {
   position: relative;
   z-index: 2;
-  width: 42px;
+  width: 38px;
   flex-shrink: 0;
   display: flex;
   justify-content: center;
-  padding-top: 4px;
+  padding-top: 3px;
 }
 
 .node-ring {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background-color: var(--parchment);
   border: 2px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 10px var(--shadow-gold);
+  box-shadow: 0 0 8px var(--shadow-gold);
   transition: all 0.3s ease;
 }
 
 .node-spark {
   color: var(--crimson);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   line-height: 1;
 }
 
@@ -1274,7 +1267,6 @@ body {
   background-color: var(--crimson);
   border-color: var(--bright-gold);
   transform: scale(1.15);
-  box-shadow: 0 0 14px var(--gold);
 }
 
 .timeline-entry.visible .node-spark {
@@ -1284,22 +1276,22 @@ body {
 .timeline-parchment {
   background: #ffffff;
   border: 1px solid rgba(201, 164, 92, 0.45);
-  border-radius: 12px;
-  padding: 20px 22px;
+  border-radius: 10px;
+  padding: 14px 16px;
   text-align: left;
   flex-grow: 1;
-  box-shadow: 0 6px 18px rgba(59, 7, 16, 0.08);
+  box-shadow: 0 4px 14px rgba(59, 7, 16, 0.08);
 }
 
 .timeline-parchment.highlighted-entry {
   border: 1.5px solid var(--gold);
   background: linear-gradient(135deg, #ffffff 0%, #fffbf2 100%);
-  box-shadow: 0 8px 26px rgba(59, 7, 16, 0.12), var(--gold-glow);
+  box-shadow: 0 6px 20px rgba(59, 7, 16, 0.12), var(--gold-glow);
 }
 
 .entry-time {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 1.5px;
   color: var(--crimson);
@@ -1312,7 +1304,7 @@ body {
 
 .entry-title {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 600;
   color: var(--maroon);
   line-height: 1.2;
@@ -1320,11 +1312,11 @@ body {
 
 .entry-desc {
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 0.92rem;
   font-style: italic;
   color: #4d1d23;
-  margin-top: 4px;
-  line-height: 1.5;
+  margin-top: 3px;
+  line-height: 1.45;
 }
 
 /* ===================================================
@@ -1332,23 +1324,23 @@ body {
    =================================================== */
 .venue-section {
   background: linear-gradient(180deg, #f7ecd9 0%, var(--parchment) 100%);
-  padding: 75px 0 80px;
+  padding: 50px 16px 56px;
 }
 
 .venue-grand-card {
-  max-width: 520px;
-  margin: 25px auto 0;
-  border-radius: 16px;
+  max-width: 360px;
+  margin: 20px auto 0;
+  border-radius: 14px;
   border: 1.5px solid var(--gold);
   background-color: #ffffff;
   overflow: hidden;
-  box-shadow: 0 15px 40px rgba(59, 7, 16, 0.2), var(--gold-glow);
+  box-shadow: 0 12px 30px rgba(59, 7, 16, 0.2), var(--gold-glow);
 }
 
 .venue-photo-holder {
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 220px;
   overflow: hidden;
 }
 
@@ -1366,39 +1358,39 @@ body {
 
 .venue-banner-badge {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 14px;
+  right: 14px;
   background: rgba(43, 4, 10, 0.88);
   border: 1px solid var(--gold);
   border-radius: 20px;
-  padding: 6px 16px;
+  padding: 4px 14px;
   color: var(--bright-gold);
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 2px;
   backdrop-filter: blur(4px);
 }
 
 .venue-details-wrap {
-  padding: 28px 24px 30px;
+  padding: 22px 18px 24px;
   text-align: center;
 }
 
 .venue-hall-title {
   font-family: var(--font-serif);
-  font-size: 1.8rem;
+  font-size: 1.55rem;
   font-weight: 600;
   color: var(--maroon);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .venue-address-block {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 0.98rem;
   color: #3b1419;
-  line-height: 1.6;
-  margin-bottom: 24px;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .royal-gold-button {
@@ -1409,15 +1401,15 @@ body {
   background: linear-gradient(135deg, var(--burgundy) 0%, var(--maroon) 100%);
   border: 1.5px solid var(--gold);
   border-radius: 30px;
-  padding: 14px 32px;
+  padding: 12px 26px;
   color: var(--light-gold);
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
-  box-shadow: 0 6px 20px rgba(59, 7, 16, 0.4), var(--gold-glow);
+  box-shadow: 0 5px 16px rgba(59, 7, 16, 0.35);
   transition: all 0.3s ease;
 }
 
@@ -1425,8 +1417,6 @@ body {
   background: linear-gradient(135deg, var(--crimson) 0%, var(--wine) 100%);
   color: var(--white);
   border-color: var(--bright-gold);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(125, 21, 32, 0.5), var(--gold-glow-intense);
 }
 
 /* ===================================================
@@ -1434,25 +1424,25 @@ body {
    =================================================== */
 .dress-section {
   background: linear-gradient(180deg, var(--parchment) 0%, #faebd7 100%);
-  padding: 75px 0 80px;
+  padding: 50px 16px 54px;
 }
 
 .dress-guide-para {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  line-height: 1.8;
+  font-size: 1.1rem;
+  line-height: 1.7;
   color: var(--maroon);
-  max-width: 580px;
-  margin: 0 auto 14px;
+  max-width: 350px;
+  margin: 0 auto 10px;
 }
 
 .dress-note-para {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-style: italic;
   color: var(--crimson);
-  max-width: 540px;
-  margin: 0 auto 32px;
+  max-width: 340px;
+  margin: 0 auto 24px;
 }
 
 .palette-swatches-grid {
@@ -1460,8 +1450,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
-  max-width: 600px;
+  gap: 14px;
+  max-width: 360px;
   margin: 0 auto;
 }
 
@@ -1469,60 +1459,120 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 }
 
 .swatch-disc {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  box-shadow: 0 5px 15px rgba(59, 7, 16, 0.25), 0 0 0 1.5px rgba(201, 164, 92, 0.6);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 10px rgba(59, 7, 16, 0.25), 0 0 0 1.5px rgba(201, 164, 92, 0.6);
+  transition: transform 0.25s ease;
 }
 
 .palette-swatch-box:hover .swatch-disc {
-  transform: scale(1.15);
-  box-shadow: 0 8px 20px rgba(59, 7, 16, 0.4), var(--gold-glow);
+  transform: scale(1.12);
 }
 
 .swatch-title {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--maroon);
 }
 
 /* ===================================================
-   SECTION 10: FESTIVITIES (Responsive 3-Column Deck)
+   SECTION 10: FESTIVITIES
    =================================================== */
 .festivities-section {
   background: linear-gradient(180deg, #faebd7 0%, var(--parchment) 100%);
-  padding: 75px 0 85px;
+  padding: 52px 16px 58px;
 }
 
 .festivities-card-deck {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  max-width: 860px;
-  margin: 30px auto 0;
-}
-
-@media (min-width: 768px) {
-  .festivities-card-deck {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 360px;
+  margin: 22px auto 0;
 }
 
 .royal-festivity-card {
   background: #ffffff;
   border: 1.5px solid var(--gold);
-  border-radius: 14px;
-  padding: 28px 20px;
+  border-radius: 12px;
+  padding: 22px 18px;
   text-align: center;
-  box-shadow: 0 8px 24px rgba(59, 7, 16, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 18px rgba(59, 7, 16, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.royal-festivity-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(59, 7, 16, 0.16), var(--gold-glow);
+}
+
+.festivity-crest {
+  color: var(--gold);
+  font-size: 1rem;
+  letter-spacing: 3px;
+  margin-bottom: 3px;
+}
+
+.festivity-name {
+  font-family: var(--font-script);
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--crimson);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.festivity-meta {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--maroon);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.festivity-place {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dark-gold);
+  margin-bottom: 6px;
+}
+
+.festivity-details {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: #55242b;
+  margin-bottom: 14px;
+  line-height: 1.45;
+}
+
+.festivity-maps-action {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--crimson);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--gold);
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+/* ===================================================
+   SECTION 11: CLOSING (CLEAN RESIZED FLORAL FRAMING)
+   =================================================== */
+.closing-section {
+  background: linear-gradient(180deg, var(--parchment) 0%, #fbf3e4 100%);
+  padding: 0;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -1530,124 +1580,62 @@ body {
   justify-content: space-between;
 }
 
-.royal-festivity-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 35px rgba(59, 7, 16, 0.2), var(--gold-glow);
+.closing-floral-top-edge {
+  width: 100%;
+  line-height: 0;
+  margin-bottom: 16px;
 }
 
-.festivity-crest {
-  color: var(--gold);
-  font-size: 1.1rem;
-  letter-spacing: 4px;
-  margin-bottom: 6px;
-}
-
-.festivity-name {
-  font-family: var(--font-script);
-  font-size: 2.9rem;
-  font-weight: 400;
-  color: var(--crimson);
-  line-height: 1.1;
-  margin-bottom: 6px;
-}
-
-.festivity-meta {
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  letter-spacing: 2.5px;
-  color: var(--maroon);
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.festivity-place {
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--dark-gold);
-  margin-bottom: 8px;
-}
-
-.festivity-details {
-  font-family: var(--font-serif);
-  font-size: 0.98rem;
-  font-style: italic;
-  color: #55242b;
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-.festivity-maps-action {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--crimson);
-  text-decoration: none;
-  border-bottom: 1.5px solid var(--gold);
-  padding-bottom: 2px;
-  align-self: center;
-  transition: color 0.25s ease, border-color 0.25s ease;
-}
-
-.festivity-maps-action:hover {
-  color: var(--maroon);
-  border-color: var(--maroon);
-}
-
-/* ===================================================
-   SECTION 11: FULL SCREEN CLOSING
-   =================================================== */
-.closing-section {
-  background: linear-gradient(180deg, var(--parchment) 0%, #fbf3e4 100%);
-  padding: 100px 0 95px;
-  position: relative;
-  overflow: hidden;
+.closing-floral-bottom-edge {
+  width: 100%;
+  line-height: 0;
+  margin-top: 16px;
 }
 
 .closing-card-core {
-  max-width: 650px;
+  padding: 10px 18px;
+  max-width: 360px;
   margin: 0 auto;
 }
 
 .closing-heartfelt-msg {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-style: italic;
   color: var(--maroon);
-  line-height: 1.85;
-  margin-bottom: 28px;
+  line-height: 1.75;
+  margin-bottom: 20px;
 }
 
 .closing-ornate-box {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.75);
   border: 1.5px dashed var(--gold);
-  border-radius: 14px;
-  padding: 28px 24px;
-  margin-top: 20px;
-  box-shadow: 0 8px 25px rgba(59, 7, 16, 0.08);
+  border-radius: 12px;
+  padding: 22px 18px;
+  margin-top: 14px;
+  box-shadow: 0 6px 18px rgba(59, 7, 16, 0.08);
 }
 
 .box-quote {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: #3b141a;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .box-signature {
   font-family: var(--font-script);
-  font-size: 3.4rem;
+  font-size: 3rem;
   line-height: 1;
 }
 
 /* ===================================================
-   SECTION 12: FULL SCREEN FOOTER
+   SECTION 12: FOOTER
    =================================================== */
 .invite-footer {
   background: linear-gradient(180deg, var(--maroon) 0%, #150004 100%);
   color: var(--champagne);
-  padding: 55px 0 65px;
+  padding: 38px 16px 44px;
   text-align: center;
   position: relative;
   z-index: 10;
@@ -1657,40 +1645,40 @@ body {
 
 .footer-crest {
   color: var(--gold);
-  font-size: 1.1rem;
-  letter-spacing: 6px;
-  margin-bottom: 16px;
+  font-size: 0.95rem;
+  letter-spacing: 5px;
+  margin-bottom: 12px;
 }
 
 .footer-title {
   font-family: var(--font-script);
-  font-size: 3.6rem;
+  font-size: 3rem;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .footer-calendar {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
-  letter-spacing: 2.5px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
   color: var(--champagne);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   opacity: 0.9;
 }
 
 .footer-sentiment {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-style: italic;
   color: var(--gold);
   opacity: 0.9;
 }
 
 .footer-line {
-  width: 80px;
+  width: 60px;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  margin: 22px auto 0;
+  margin: 16px auto 0;
 }
 
 /* ===================================================
@@ -1710,8 +1698,8 @@ body {
   position: absolute;
   top: -30px;
   pointer-events: none;
-  width: 16px;
-  height: 20px;
+  width: 15px;
+  height: 18px;
   background: radial-gradient(circle at 35% 35%, #bd2032 0%, #7d1520 70%, #45040d 100%);
   border-radius: 50% 12% 50% 50%;
   opacity: 0.8;
@@ -1749,24 +1737,5 @@ body {
   }
   .petal {
     display: none !important;
-  }
-}
-
-/* Mobile responsive adjustments */
-@media (max-width: 480px) {
-  .couple-name {
-    font-size: 3.6rem;
-  }
-  .section-title {
-    font-size: 2rem;
-  }
-  .tile-digit {
-    font-size: 1.8rem;
-  }
-  .photo-card-frame {
-    height: 350px;
-  }
-  .countdown-board {
-    gap: 8px;
   }
 }

@@ -16,13 +16,13 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Audio Element -->
+  <!-- Background Audio -->
   <audio id="backgroundMusic" preload="none" loop>
     <source src="assets/audio/background.mp3" type="audio/mpeg">
   </audio>
@@ -39,75 +39,76 @@
   <div id="petalsContainer" class="petals-container" aria-hidden="true"></div>
 
   <!-- ===================================================
-       SECTION 1: CINEMATIC FULL SCREEN INTRO & CURTAIN VIDEO
+       OUTER DESKTOP WRAPPER (Centers 9:16 Mobile/Tab Ratio Invite)
        =================================================== -->
-  <section id="intro" class="intro-screen">
-    <!-- Base Royal Artwork -->
-    <div class="intro-visual" id="introVisual">
-      <img src="assets/intro-curtain.jpg.png" alt="Royal Velvet Curtain" class="intro-art-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/intro-curtain.jpg';}">
-      
-      <!-- Ambient Candlelight Vignette -->
-      <div class="intro-vignette"></div>
+  <div class="invite-outer-frame">
+    <div class="invite-card-device" id="inviteCardDevice">
 
-      <!-- Pulsing Royal Seal over "tap to open" -->
-      <button id="openInviteBtn" class="tap-hotspot" aria-label="Tap to Open Royal Wedding Invitation">
-        <div class="seal-outer-ring"></div>
-        <div class="seal-inner-core">
-          <span class="seal-sparkle">✦</span>
-          <span class="seal-text">TAP TO OPEN</span>
-          <span class="seal-sparkle">✦</span>
-        </div>
-      </button>
-    </div>
+      <!-- ===================================================
+           SECTION 1: INTRO SCREEN & CINEMATIC CURTAIN VIDEO (9:16)
+           =================================================== -->
+      <section id="intro" class="intro-screen">
+        <!-- Base Royal Artwork -->
+        <div class="intro-visual" id="introVisual">
+          <img src="assets/intro-curtain.jpg.png" alt="Royal Velvet Curtain" class="intro-art-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/intro-curtain.jpg';}">
+          <div class="intro-vignette"></div>
 
-    <!-- Live Cinematic Curtain Video Overlay (Full Screen) -->
-    <div class="curtain-video-layer" id="curtainVideoLayer">
-      <video id="curtainVideo" class="curtain-video" playsinline muted preload="auto">
-        <source src="assets/curtain-open.mp4" type="video/mp4">
-      </video>
-      <div class="video-light-leak" id="videoLightLeak"></div>
-      <button id="videoSkipBtn" class="video-skip-btn" aria-label="Enter Invitation">
-        ENTER INVITATION ➔
-      </button>
-    </div>
-  </section>
-
-  <!-- ===================================================
-       MAIN INVITATION (Full Screen Responsive Royal Experience)
-       =================================================== -->
-  <div class="invite-wrapper" id="inviteWrapper">
-    <main class="invite-container">
-
-      <!-- SECTION 2: HERO (Full Screen Palace Terrace) -->
-      <section id="hero" class="section hero-section">
-        <div class="hero-bg-overlay"></div>
-        
-        <!-- Edge-to-Edge Floral Top Garland -->
-        <div class="floral-edge floral-edge-top">
-          <img src="assets/floral-top.png" alt="" class="floral-full-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/floral-top.png';}">
+          <!-- Pulsing Royal Seal over "tap to open" -->
+          <button id="openInviteBtn" class="tap-hotspot" aria-label="Tap to Open Royal Wedding Invitation">
+            <div class="seal-outer-ring"></div>
+            <div class="seal-inner-core">
+              <span class="seal-sparkle">✦</span>
+              <span class="seal-text">TAP TO OPEN</span>
+              <span class="seal-sparkle">✦</span>
+            </div>
+          </button>
         </div>
 
-        <div class="section-container hero-container">
-          <!-- Bismillah Calligraphy in Golden Crest -->
-          <div class="bismillah-crest reveal-item" data-delay="100">
-            <div class="bismillah-arabic" dir="rtl" lang="ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
-            <p class="bismillah-trans">In the name of Allah, the Most Gracious, the Most Merciful</p>
+        <!-- 9:16 Video Player Layer -->
+        <div class="curtain-video-layer" id="curtainVideoLayer">
+          <video id="curtainVideo" class="curtain-video" playsinline muted preload="auto">
+            <source src="assets/curtain-open.mp4" type="video/mp4">
+          </video>
+          <div class="video-light-leak" id="videoLightLeak"></div>
+          <button id="videoSkipBtn" class="video-skip-btn" aria-label="Enter Invitation">
+            ENTER INVITATION ➔
+          </button>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           MAIN INVITATION CONTENT
+           =================================================== -->
+      <main class="invite-scroll-content">
+
+        <!-- SECTION 2: HERO -->
+        <section id="hero" class="section hero-section">
+          <div class="hero-bg-overlay"></div>
+          
+          <!-- Top Floral Garland (Edge-to-edge flush with top, never overlapping text) -->
+          <div class="hero-floral-header">
+            <img src="assets/floral-top.png" alt="" class="floral-garland-top" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/floral-top.png';}">
           </div>
 
-          <div class="royal-filigree-divider reveal-item" data-delay="250">
-            <span class="filigree-line"></span>
-            <span class="filigree-motif">❖</span>
-            <span class="filigree-line"></span>
-          </div>
+          <div class="hero-body-content">
+            <!-- Bismillah Calligraphy -->
+            <div class="bismillah-crest reveal-item" data-delay="100">
+              <div class="bismillah-arabic" dir="rtl" lang="ar">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+              <p class="bismillah-trans">In the name of Allah, the Most Gracious, the Most Merciful</p>
+            </div>
 
-          <p class="hero-invite-label reveal-item" data-delay="400">
-            WE REQUEST THE HONOUR OF YOUR PRESENCE<br>AT THE NIKAH OF
-          </p>
+            <div class="gold-filigree-divider reveal-item" data-delay="200">
+              <span class="filigree-line"></span>
+              <span class="filigree-motif">❖</span>
+              <span class="filigree-line"></span>
+            </div>
 
-          <!-- Names Block -->
-          <div class="hero-couple-grid">
+            <p class="hero-invite-label reveal-item" data-delay="300">
+              WE REQUEST THE HONOUR OF YOUR PRESENCE<br>AT THE NIKAH OF
+            </p>
+
             <!-- Bride -->
-            <div class="couple-card reveal-item" data-delay="550">
+            <div class="name-block reveal-item" data-delay="450">
               <h1 class="couple-name bride-name shimmer-text">Aiza Haniya</h1>
               <p class="parents-line">
                 <span class="kin-tag">DAUGHTER OF</span><br>
@@ -116,50 +117,48 @@
             </div>
 
             <!-- Ampersand -->
-            <div class="names-connector reveal-item" data-delay="700">
+            <div class="names-connector reveal-item" data-delay="600">
               <span class="connector-line"></span>
               <span class="connector-amp">&amp;</span>
               <span class="connector-line"></span>
             </div>
 
             <!-- Groom -->
-            <div class="couple-card reveal-item" data-delay="850">
+            <div class="name-block reveal-item" data-delay="750">
               <h1 class="couple-name groom-name shimmer-text">Hamza Idris</h1>
               <p class="parents-line">
                 <span class="kin-tag">SON OF</span><br>
                 <strong class="parent-names">Abdul Rahman &amp; Zohra Begum</strong>
               </p>
             </div>
-          </div>
 
-          <div class="royal-filigree-divider reveal-item" data-delay="1000">
-            <span class="filigree-line"></span>
-            <span class="filigree-motif">✦ ❖ ✦</span>
-            <span class="filigree-line"></span>
-          </div>
+            <div class="gold-filigree-divider reveal-item" data-delay="900">
+              <span class="filigree-line"></span>
+              <span class="filigree-motif">✦ ❖ ✦</span>
+              <span class="filigree-line"></span>
+            </div>
 
-          <p class="hero-tagline reveal-item" data-delay="1150">
-            AS THEY BEGIN THEIR FOREVER<br>IN FAITH AND LOVE.
-          </p>
+            <p class="hero-tagline reveal-item" data-delay="1050">
+              AS THEY BEGIN THEIR FOREVER<br>IN FAITH AND LOVE.
+            </p>
 
-          <!-- Animated Scroll Indicator -->
-          <div class="scroll-indicator reveal-item" data-delay="1300">
-            <span class="scroll-text">SCROLL TO CELEBRATE</span>
-            <div class="scroll-beacon">
-              <div class="scroll-dot"></div>
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator reveal-item" data-delay="1200">
+              <span class="scroll-text">SCROLL TO CELEBRATE</span>
+              <div class="scroll-beacon">
+                <div class="scroll-dot"></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Edge-to-Edge Floral Bottom Garland (Clean transparent PNG) -->
-        <div class="floral-edge floral-edge-bottom">
-          <img src="assets/floral-bottom.png" alt="" class="floral-full-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/floral-bottom.png';}">
-        </div>
-      </section>
+          <!-- Bottom Floral Garland (Flush with bottom edge, perfectly aligned) -->
+          <div class="hero-floral-footer">
+            <img src="assets/floral-bottom.png" alt="" class="floral-garland-bottom" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/floral-bottom.png';}">
+          </div>
+        </section>
 
-      <!-- SECTION 3: WELCOME -->
-      <section id="welcome" class="section welcome-section">
-        <div class="section-container">
+        <!-- SECTION 3: WELCOME -->
+        <section id="welcome" class="section welcome-section">
           <div class="royal-card-inner">
             <div class="section-floral-header reveal-item">
               <img src="assets/floral-divider.png" alt="" class="floral-divider-img">
@@ -183,20 +182,17 @@
               <div class="signature-date">Sunday • 18 October 2026</div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- SECTION 4: SCRATCH DATE (INTERACTIVE REAL HTML5 CANVAS) -->
-      <section id="date" class="section scratch-section">
-        <div class="section-container">
+        <!-- SECTION 4: SCRATCH DATE -->
+        <section id="date" class="section scratch-section">
           <div class="gold-badge reveal-item">SAVE OUR DATE</div>
           <h2 class="section-title reveal-item">The Blessed Union</h2>
-          <p class="scratch-guidance reveal-item">Scratch the golden medallion below with your finger or mouse</p>
+          <p class="scratch-guidance reveal-item">Scratch the gold medallion below to reveal our date</p>
 
-          <!-- Scratch Card Component Frame -->
           <div class="scratch-card-container reveal-item" id="scratchCardContainer">
             <div class="scratch-stage">
-              <!-- Underneath Revealed Content -->
+              <!-- Revealed Decree Underneath -->
               <div class="revealed-invitation-card" id="revealedCard">
                 <div class="card-corner-decor tl">❖</div>
                 <div class="card-corner-decor tr">❖</div>
@@ -212,19 +208,15 @@
                 <div class="revealed-seal">✦ BLESSED NIKAH ✦</div>
               </div>
 
-              <!-- HTML5 Scratch Canvas Layer -->
+              <!-- Canvas Scratch Layer -->
               <canvas id="scratchCanvas" class="scratch-canvas" aria-label="Interactive scratch card canvas"></canvas>
-
-              <!-- Sparkle Burst Layer -->
               <div class="sparkles-overlay" id="sparklesOverlay" aria-hidden="true"></div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- SECTION 5: OUR STORY (LUXURY PHOTO SLIDER) -->
-      <section id="story" class="section story-section">
-        <div class="section-container">
+        <!-- SECTION 5: OUR STORY (PHOTO SLIDER) -->
+        <section id="story" class="section story-section">
           <div class="gold-badge reveal-item">OUR STORY</div>
           <h2 class="section-title reveal-item">Moments, softly held</h2>
           <p class="section-subtitle reveal-item">Two souls destined by prayer and grace</p>
@@ -233,11 +225,10 @@
             <div class="slider-viewport" id="sliderViewport">
               <div class="slider-track" id="sliderTrack">
                 
-                <!-- Slide 1 -->
                 <div class="slider-slide" data-index="0">
                   <div class="photo-card-frame">
                     <div class="photo-inner">
-                      <img src="assets/couple-1.png" alt="Aiza and Hamza - Blessed Bond" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-1.jpg';}">
+                      <img src="assets/couple-1.png" alt="Aiza and Hamza" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-1.jpg';}">
                     </div>
                     <div class="photo-caption">
                       <span class="caption-tag">CHAPTER I</span>
@@ -246,11 +237,10 @@
                   </div>
                 </div>
 
-                <!-- Slide 2 -->
                 <div class="slider-slide" data-index="1">
                   <div class="photo-card-frame">
                     <div class="photo-inner">
-                      <img src="assets/couple-2.png" alt="Aiza and Hamza - Joyous Days" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-2.jpg';}">
+                      <img src="assets/couple-2.png" alt="Aiza and Hamza" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-2.jpg';}">
                     </div>
                     <div class="photo-caption">
                       <span class="caption-tag">CHAPTER II</span>
@@ -259,11 +249,10 @@
                   </div>
                 </div>
 
-                <!-- Slide 3 -->
                 <div class="slider-slide" data-index="2">
                   <div class="photo-card-frame">
                     <div class="photo-inner">
-                      <img src="assets/couple-3.png" alt="Aiza and Hamza - Everlasting Love" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-3.jpg';}">
+                      <img src="assets/couple-3.png" alt="Aiza and Hamza" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-3.jpg';}">
                     </div>
                     <div class="photo-caption">
                       <span class="caption-tag">CHAPTER III</span>
@@ -272,11 +261,10 @@
                   </div>
                 </div>
 
-                <!-- Slide 4 -->
                 <div class="slider-slide" data-index="3">
                   <div class="photo-card-frame">
                     <div class="photo-inner">
-                      <img src="assets/couple-4.png" alt="Aiza and Hamza - In Faith and Love" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-4.jpg';}">
+                      <img src="assets/couple-4.png" alt="Aiza and Hamza" class="slide-couple-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/couple-4.jpg';}">
                     </div>
                     <div class="photo-caption">
                       <span class="caption-tag">CHAPTER IV</span>
@@ -288,71 +276,69 @@
               </div>
             </div>
 
-            <!-- Slider Controls -->
-            <button class="slider-nav-btn prev" id="sliderPrevBtn" aria-label="Previous Portrait">‹</button>
-            <button class="slider-nav-btn next" id="sliderNextBtn" aria-label="Next Portrait">›</button>
+            <!-- Controls -->
+            <button class="slider-nav-btn prev" id="sliderPrevBtn" aria-label="Previous">‹</button>
+            <button class="slider-nav-btn next" id="sliderNextBtn" aria-label="Next">›</button>
 
-            <!-- Dot Indicators -->
+            <!-- Dots -->
             <div class="slider-indicators" id="sliderDots">
-              <button class="slider-dot active" data-index="0" aria-label="Portrait 1"></button>
-              <button class="slider-dot" data-index="1" aria-label="Portrait 2"></button>
-              <button class="slider-dot" data-index="2" aria-label="Portrait 3"></button>
-              <button class="slider-dot" data-index="3" aria-label="Portrait 4"></button>
+              <button class="slider-dot active" data-index="0" aria-label="Slide 1"></button>
+              <button class="slider-dot" data-index="1" aria-label="Slide 2"></button>
+              <button class="slider-dot" data-index="2" aria-label="Slide 3"></button>
+              <button class="slider-dot" data-index="3" aria-label="Slide 4"></button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- SECTION 6: COUNTDOWN -->
-      <section id="countdown" class="section countdown-section">
-        <div class="countdown-velvet-bg"></div>
-        <div class="section-container countdown-container">
-          <div class="gold-badge badge-light reveal-item">UNTIL WE SAY QUBOOL HAI</div>
-          <h2 class="section-title text-light reveal-item">Counting every heartbeat</h2>
-          <div class="gold-ornament-line reveal-item">
-            <span class="line-wing"></span>
-            <span class="line-gem">✦</span>
-            <span class="line-wing"></span>
+        <!-- SECTION 6: COUNTDOWN -->
+        <section id="countdown" class="section countdown-section">
+          <div class="countdown-velvet-bg"></div>
+          <div class="countdown-inner-content">
+            <div class="gold-badge badge-light reveal-item">UNTIL WE SAY QUBOOL HAI</div>
+            <h2 class="section-title text-light reveal-item">Counting every heartbeat</h2>
+            <div class="gold-ornament-line reveal-item">
+              <span class="line-wing"></span>
+              <span class="line-gem">✦</span>
+              <span class="line-wing"></span>
+            </div>
+
+            <div class="countdown-board reveal-item" id="countdownGrid">
+              <div class="time-tile">
+                <div class="tile-face">
+                  <span class="tile-digit" id="days">00</span>
+                  <span class="tile-caption">DAYS</span>
+                </div>
+              </div>
+              <div class="time-tile">
+                <div class="tile-face">
+                  <span class="tile-digit" id="hours">00</span>
+                  <span class="tile-caption">HOURS</span>
+                </div>
+              </div>
+              <div class="time-tile">
+                <div class="tile-face">
+                  <span class="tile-digit" id="minutes">00</span>
+                  <span class="tile-caption">MINUTES</span>
+                </div>
+              </div>
+              <div class="time-tile">
+                <div class="tile-face">
+                  <span class="tile-digit" id="seconds">00</span>
+                  <span class="tile-caption">SECONDS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="countdown-celebration" id="countdownFinished">
+              <span>✦ THE DAY HAS ARRIVED ✦</span>
+            </div>
+
+            <p class="countdown-exact-date reveal-item">Sunday, October 18, 2026 • 07:00 PM IST</p>
           </div>
+        </section>
 
-          <div class="countdown-board reveal-item" id="countdownGrid">
-            <div class="time-tile">
-              <div class="tile-face">
-                <span class="tile-digit" id="days">00</span>
-                <span class="tile-caption">DAYS</span>
-              </div>
-            </div>
-            <div class="time-tile">
-              <div class="tile-face">
-                <span class="tile-digit" id="hours">00</span>
-                <span class="tile-caption">HOURS</span>
-              </div>
-            </div>
-            <div class="time-tile">
-              <div class="tile-face">
-                <span class="tile-digit" id="minutes">00</span>
-                <span class="tile-caption">MINUTES</span>
-              </div>
-            </div>
-            <div class="time-tile">
-              <div class="tile-face">
-                <span class="tile-digit" id="seconds">00</span>
-                <span class="tile-caption">SECONDS</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="countdown-celebration" id="countdownFinished">
-            <span>✦ THE DAY HAS ARRIVED ✦</span>
-          </div>
-
-          <p class="countdown-exact-date reveal-item">Sunday, October 18, 2026 • 07:00 PM IST</p>
-        </div>
-      </section>
-
-      <!-- SECTION 7: TIMELINE -->
-      <section id="timeline" class="section timeline-section">
-        <div class="section-container">
+        <!-- SECTION 7: TIMELINE -->
+        <section id="timeline" class="section timeline-section">
           <div class="gold-badge reveal-item">THE CELEBRATION</div>
           <h2 class="section-title reveal-item">Our Nikah day</h2>
           <div class="gold-ornament-line reveal-item">
@@ -374,7 +360,7 @@
               <div class="timeline-parchment">
                 <div class="entry-time">6:30 PM</div>
                 <h3 class="entry-title">Guest Arrival</h3>
-                <p class="entry-desc">A warm welcome with chilled rose sherbet as dear families and friends gather.</p>
+                <p class="entry-desc">A warm welcome with chilled rose sherbet as dear families gather.</p>
               </div>
             </div>
 
@@ -402,7 +388,7 @@
               <div class="timeline-parchment">
                 <div class="entry-time">7:30 PM</div>
                 <h3 class="entry-title">Blessings</h3>
-                <p class="entry-desc">Family greetings, heartiest congratulations &amp; photographs with the newly wedded couple.</p>
+                <p class="entry-desc">Family greetings, heartiest congratulations &amp; photographs.</p>
               </div>
             </div>
 
@@ -416,17 +402,15 @@
               <div class="timeline-parchment">
                 <div class="entry-time">8:00 PM</div>
                 <h3 class="entry-title">Dinner</h3>
-                <p class="entry-desc">A royal feast shared with love — an exquisite spread of Mughlai &amp; Awadhi delicacies.</p>
+                <p class="entry-desc">A royal feast shared with love — delectable Mughlai &amp; Awadhi cuisine.</p>
               </div>
             </div>
 
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- SECTION 8: VENUE -->
-      <section id="venue" class="section venue-section">
-        <div class="section-container">
+        <!-- SECTION 8: VENUE -->
+        <section id="venue" class="section venue-section">
           <div class="gold-badge reveal-item">THE VENUE</div>
           <h2 class="section-title reveal-item">Hyatt Regency</h2>
           <div class="gold-ornament-line reveal-item">
@@ -454,12 +438,10 @@
               </a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- SECTION 9: DRESS CODE -->
-      <section id="dress-code" class="section dress-section">
-        <div class="section-container">
+        <!-- SECTION 9: DRESS CODE -->
+        <section id="dress-code" class="section dress-section">
           <div class="gold-badge reveal-item">DRESS CODE</div>
           <h2 class="section-title reveal-item">Festive Formal</h2>
           <div class="gold-ornament-line reveal-item">
@@ -498,12 +480,10 @@
               <span class="swatch-title">Champagne</span>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- SECTION 10: FESTIVITIES -->
-      <section id="festivities" class="section festivities-section">
-        <div class="section-container">
+        <!-- SECTION 10: FESTIVITIES -->
+        <section id="festivities" class="section festivities-section">
           <div class="gold-badge reveal-item">THE FESTIVITIES</div>
           <h2 class="section-title reveal-item">Days filled with joy</h2>
           <div class="gold-ornament-line reveal-item">
@@ -551,53 +531,52 @@
             </div>
 
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- SECTION 11: CLOSING (Full Screen Royal Arch) -->
-      <section id="closing" class="section closing-section">
-        <!-- Edge-to-Edge Floral Top -->
-        <div class="floral-edge floral-edge-top">
-          <img src="assets/floral-top.png" alt="" class="floral-full-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/floral-top.png';}">
-        </div>
-
-        <div class="section-container closing-card-core">
-          <div class="gold-badge reveal-item">WITH ALL OUR HEARTS</div>
-          <h2 class="section-title reveal-item">Your presence is our present</h2>
-          <div class="gold-ornament-line reveal-item">
-            <span class="line-wing"></span>
-            <span class="line-gem">✦</span>
-            <span class="line-wing"></span>
+        <!-- SECTION 11: CLOSING -->
+        <section id="closing" class="section closing-section">
+          <!-- Top Floral Garland for Closing -->
+          <div class="closing-floral-top-edge">
+            <img src="assets/floral-top.png" alt="" class="floral-garland-top" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/floral-top.png';}">
           </div>
 
-          <p class="closing-heartfelt-msg reveal-item">
-            “Your love, blessings, and presence are the greatest gifts we could ever ask for as we embark on this sacred journey together.”
-          </p>
+          <div class="closing-card-core">
+            <div class="gold-badge reveal-item">WITH ALL OUR HEARTS</div>
+            <h2 class="section-title reveal-item">Your presence is our present</h2>
+            <div class="gold-ornament-line reveal-item">
+              <span class="line-wing"></span>
+              <span class="line-gem">✦</span>
+              <span class="line-wing"></span>
+            </div>
 
-          <div class="closing-ornate-box reveal-item">
-            <p class="box-quote">We can't wait to celebrate with you.</p>
-            <div class="box-signature shimmer-text">Aiza &amp; Hamza</div>
+            <p class="closing-heartfelt-msg reveal-item">
+              “Your love, blessings, and presence are the greatest gifts we could ever ask for as we embark on this sacred journey together.”
+            </p>
+
+            <div class="closing-ornate-box reveal-item">
+              <p class="box-quote">We can't wait to celebrate with you.</p>
+              <div class="box-signature shimmer-text">Aiza &amp; Hamza</div>
+            </div>
           </div>
-        </div>
 
-        <!-- Edge-to-Edge Floral Bottom -->
-        <div class="floral-edge floral-edge-bottom">
-          <img src="assets/floral-bottom.png" alt="" class="floral-full-img" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/floral-bottom.png';}">
-        </div>
-      </section>
+          <!-- Bottom Floral Garland for Closing -->
+          <div class="closing-floral-bottom-edge">
+            <img src="assets/floral-bottom.png" alt="" class="floral-garland-bottom" onerror="if(!this.dataset.err){this.dataset.err=1;this.src='assets/floral-bottom.png';}">
+          </div>
+        </section>
 
-    </main>
+      </main>
 
-    <!-- SECTION 12: FOOTER (Full Screen) -->
-    <footer class="invite-footer">
-      <div class="section-container">
+      <!-- SECTION 12: FOOTER -->
+      <footer class="invite-footer">
         <div class="footer-crest">✦ ❖ ✦</div>
         <h3 class="footer-title shimmer-text">Aiza &amp; Hamza</h3>
         <p class="footer-calendar">October 18, 2026</p>
         <p class="footer-sentiment">With love, prayers, and gratitude.</p>
         <div class="footer-line"></div>
-      </div>
-    </footer>
+      </footer>
+
+    </div>
   </div>
 
   <script src="script.js"></script>
